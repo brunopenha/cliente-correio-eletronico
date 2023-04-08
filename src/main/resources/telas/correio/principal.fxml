@@ -7,20 +7,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="504.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telas.acesso.Principal">
+<AnchorPane prefHeight="504.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.nom.penha.bruno.controladores.TelaPrincipalController">
     <children>
-        <MenuBar>
+        <MenuBar prefHeight="29.0" prefWidth="714.0">
             <menus>
                 <Menu fx:id="Arquivo" mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem fx:id="Abrir" mnemonicParsing="false" text="Close" />
-                        <MenuItem fx:id="Fechar" mnemonicParsing="false" text="Close" />
+                        <MenuItem fx:id="abrir" mnemonicParsing="false" text="Abrir" />
+                        <MenuItem fx:id="fechar" mnemonicParsing="false" text="Fechar" />
                     </items>
                 </Menu>
                 <Menu fx:id="Edit" mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem fx:id="Opçoes" mnemonicParsing="false" onAction="#AcaoOpcoes" text="Delete" />
+                        <MenuItem fx:id="Opçoes" mnemonicParsing="false" onAction="#acaoOpcoes" text="Delete" />
                     </items>
                 </Menu>
                 <Menu fx:id="Ajuda" mnemonicParsing="false" text="Help">

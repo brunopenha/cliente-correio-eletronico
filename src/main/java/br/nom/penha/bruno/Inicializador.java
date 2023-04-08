@@ -13,9 +13,11 @@ public class Inicializador extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
-        Parent pai = FXMLLoader.load(getClass().getResource("/telas/acesso/acesso.fxml"));
+//        Parent pai = FXMLLoader.load(getClass().getResource("/telas/acesso/acesso.fxml"));
+        Parent pai = FXMLLoader.load(getClass().getResource("/telas/correio/principal.fxml"));
 
-        Scene scn = new Scene(pai, 600, 400);
+//        Scene scn = new Scene(pai, 600, 400);
+        Scene scn = new Scene(pai);
 
         stage.setScene(scn);
         stage.show();
