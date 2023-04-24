@@ -5,22 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8803449f-310f-4770-a8c9-9fedd359f837" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/nom/penha/bruno/Inicializador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/nom/penha/bruno/controladores/TelaAcessoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/nom/penha/bruno/controladores/TelaPrincipalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/telas/acesso/acesso.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/telas/correio/principal.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/none.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/nom/penha/bruno/controladores/BaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/nom/penha/bruno/gerenciadores/CorreioManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/nom/penha/bruno/visao/VisaoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/nom/penha/bruno/Inicializador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/nom/penha/bruno/Inicializador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/nom/penha/bruno/controladores/TelaAcessoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/nom/penha/bruno/controladores/TelaAcessoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/nom/penha/bruno/controladores/TelaPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/nom/penha/bruno/controladores/TelaPrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/telas/acesso/acesso.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/telas/acesso/acesso.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/telas/correio/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/telas/correio/principal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +32,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
+  <component name="ProjectId" id="2OssOr6UbsMZNNUUNz8YLGWMuD4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -52,12 +58,15 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/home/bruno/workspace/java/desktop_fx/cliente-correio-eletronico/src",
+    "last_opened_file_path": "/home/bruno/workspace/java/desktop_fx/cliente-correio-eletronico",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "show.migrate.to.gradle.popup": "false",
     "vue.rearranger.settings.migration": "true"
   }
@@ -100,7 +109,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680973250961</updated>
-      <workItem from="1680973253609" duration="4721000" />
+      <workItem from="1680973253609" duration="5462000" />
+      <workItem from="1682360599556" duration="3954000" />
     </task>
     <servers />
   </component>
