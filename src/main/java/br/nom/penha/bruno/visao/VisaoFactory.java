@@ -2,6 +2,7 @@ package br.nom.penha.bruno.visao;
 
 import br.nom.penha.bruno.controladores.BaseController;
 import br.nom.penha.bruno.controladores.TelaAcessoController;
+import br.nom.penha.bruno.controladores.TelaOpcoesController;
 import br.nom.penha.bruno.controladores.TelaPrincipalController;
 import br.nom.penha.bruno.gerenciadores.CorreioManager;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,12 @@ public class VisaoFactory {
         this.correio = correio;
     }
 
-    private static void inicializaPalco(FXMLLoader fxmlLoader) {
+    private void inicializaPalco(BaseController controlador) {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(controlador.getNomeArquivoFxml()));
+        fxmlLoader.setController(controlador);
+
+
         Parent pai;
         try {
             pai = fxmlLoader.load();
@@ -36,23 +42,19 @@ public class VisaoFactory {
 
     public void exibeTelaAcesso() {
 
-        BaseController controlador = new TelaAcessoController(correio, this, "/telas/acesso/acesso.fxml");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(controlador.getNomeArquivoFxml()));
-        fxmlLoader.setController(controlador);
-
-        inicializaPalco(fxmlLoader);
+        inicializaPalco(new TelaAcessoController(correio, this, "/telas/acesso/acesso.fxml"));
     }
 
     public void exibeTelaCorreio() {
 
-        BaseController controlador = new TelaPrincipalController(correio, this, "/telas/correio/principal.fxml");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(controlador.getNomeArquivoFxml()));
-        fxmlLoader.setController(controlador);
-
-        inicializaPalco(fxmlLoader);
+        inicializaPalco(new TelaPrincipalController(correio, this, "/telas/correio/principal.fxml"));
     }
 
     public void encerraPalco(Stage palcoASerEncerrado) {
         palcoASerEncerrado.close();
+    }
+
+    public void exibeTelaOpcoes(){
+        inicializaPalco(new TelaOpcoesController(correio, this, "/telas/opcoes/opcoes.fxml"));
     }
 }

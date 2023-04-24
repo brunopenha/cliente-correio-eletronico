@@ -24,7 +24,7 @@ public class TelaPrincipalController extends BaseController {
 
     @FXML
     void acaoOpcoes() {
-
+        visao.exibeTelaOpcoes();
     }
 
 }

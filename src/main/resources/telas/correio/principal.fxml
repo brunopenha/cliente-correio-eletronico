@@ -1,46 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.web.WebView?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="557.0" prefWidth="1060.0"
-            xmlns="http://javafx.com/javafx/8">
+
+<AnchorPane prefHeight="557.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <MenuBar prefHeight="29.0" prefWidth="1060.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                 AnchorPane.topAnchor="0.0">
+        <MenuBar prefHeight="29.0" prefWidth="1060.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <menus>
                 <Menu fx:id="arquivo" mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem fx:id="abrir" mnemonicParsing="false" text="Abrir"/>
-                        <MenuItem fx:id="fechar" mnemonicParsing="false" text="Fechar"/>
+                        <MenuItem fx:id="abrir" mnemonicParsing="false" text="Abrir" />
+                        <MenuItem fx:id="fechar" mnemonicParsing="false" text="Fechar" />
                     </items>
                 </Menu>
                 <Menu fx:id="edit" mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem fx:id="opcoes" mnemonicParsing="false" onAction="#acaoOpcoes" text="Delete"/>
+                        <MenuItem fx:id="opcoes" mnemonicParsing="false" onAction="#acaoOpcoes" text="Opções" />
                     </items>
                 </Menu>
                 <Menu fx:id="ajuda" mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem fx:id="sobre" mnemonicParsing="false" text="About"/>
+                        <MenuItem fx:id="sobre" mnemonicParsing="false" text="About" />
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
-        <TreeView fx:id="cartasTreeView" layoutY="29.0" prefHeight="530.0" prefWidth="252.0"
-                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="27.0"/>
-        <TableView fx:id="cartasTableView" layoutX="251.0" layoutY="29.0" prefHeight="264.0" prefWidth="809.0"
-                   AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
+        <TreeView fx:id="cartasTreeView" layoutY="29.0" prefHeight="530.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="27.0" />
+        <TableView fx:id="cartasTableView" layoutX="251.0" layoutY="29.0" prefHeight="264.0" prefWidth="809.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
             <columns>
-                <TableColumn fx:id="Origem" prefWidth="75.0" text="Origem"/>
-                <TableColumn fx:id="Assunto" prefWidth="75.0" text="Assunto"/>
-                <TableColumn fx:id="Destinario" prefWidth="153.0" text="Destinatario"/>
-                <TableColumn fx:id="Tamanho" prefWidth="87.0" text="Tamanho"/>
-                <TableColumn fx:id="Data" prefWidth="103.0" text="Data"/>
+                <TableColumn fx:id="Origem" prefWidth="75.0" text="Origem" />
+                <TableColumn fx:id="Assunto" prefWidth="75.0" text="Assunto" />
+                <TableColumn fx:id="Destinario" prefWidth="153.0" text="Destinatario" />
+                <TableColumn fx:id="Tamanho" prefWidth="87.0" text="Tamanho" />
+                <TableColumn fx:id="Data" prefWidth="103.0" text="Data" />
             </columns>
         </TableView>
-        <WebView fx:id="cartasWebView" layoutX="314.0" layoutY="293.0" prefHeight="264.0" prefWidth="809.0"
-                 AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="0.0"
-                 AnchorPane.topAnchor="293.0"/>
+        <WebView fx:id="cartasWebView" layoutX="314.0" layoutY="293.0" prefHeight="264.0" prefWidth="809.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="293.0" />
     </children>
 </AnchorPane>
