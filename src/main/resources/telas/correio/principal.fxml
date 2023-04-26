@@ -15,6 +15,7 @@
                     <items>
                         <MenuItem fx:id="abrir" mnemonicParsing="false" text="Abrir" />
                         <MenuItem fx:id="fechar" mnemonicParsing="false" text="Fechar" />
+                  <MenuItem fx:id="adicionaConta" mnemonicParsing="false" onAction="#acaoAdicionaConta" text="Adicionar Conta" />
                     </items>
                 </Menu>
                 <Menu fx:id="edit" mnemonicParsing="false" text="Edit">

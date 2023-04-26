@@ -11,13 +11,21 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class VisaoFactory {
 
     private CorreioManager correio;
+    private List<Stage> telasAtivas;
+
+    // Opcoes de visualização
+    private TemaCor cor = TemaCor.PADRAO;
+    private TamanhoFonte tamanhoFonte = TamanhoFonte.MEDIO;
 
     public VisaoFactory(CorreioManager correio) {
         this.correio = correio;
+        this.telasAtivas = new ArrayList<Stage>();
     }
 
     private void inicializaPalco(BaseController controlador) {
@@ -35,9 +43,10 @@ public class VisaoFactory {
         }
 
         Scene cena = new Scene(pai);
-        Stage palco = new Stage();
-        palco.setScene(cena);
-        palco.show();
+        Stage tela = new Stage();
+        tela.setScene(cena);
+        tela.show();
+        telasAtivas.add(tela);
     }
 
     public void exibeTelaAcesso() {
@@ -50,11 +59,39 @@ public class VisaoFactory {
         inicializaPalco(new TelaPrincipalController(correio, this, "/telas/correio/principal.fxml"));
     }
 
-    public void encerraPalco(Stage palcoASerEncerrado) {
-        palcoASerEncerrado.close();
+    public void fechaTela(Stage telaAserFechada) {
+        telaAserFechada.close();
+        telasAtivas.remove(telaAserFechada);
     }
 
     public void exibeTelaOpcoes(){
         inicializaPalco(new TelaOpcoesController(correio, this, "/telas/opcoes/opcoes.fxml"));
+    }
+
+    public TemaCor getCor() {
+        return cor;
+    }
+
+    public void setCor(TemaCor cor) {
+        this.cor = cor;
+    }
+
+    public TamanhoFonte getTamanhoFonte() {
+        return tamanhoFonte;
+    }
+
+    public void setTamanhoFonte(TamanhoFonte tamanhoFonte) {
+        this.tamanhoFonte = tamanhoFonte;
+    }
+
+    public void atualizaEstilos() {
+
+        for (Stage tela : telasAtivas) {
+            Scene cena = tela.getScene();
+            // Vamos brincar com o css
+            cena.getStylesheets().clear();
+            cena.getStylesheets().add(getClass().getResource(TemaCor.caminhoCss(cor)).toExternalForm());
+            cena.getStylesheets().add(getClass().getResource(TamanhoFonte.caminhoCss(tamanhoFonte)).toExternalForm());
+        }
     }
 }

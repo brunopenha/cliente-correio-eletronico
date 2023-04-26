@@ -29,7 +29,7 @@ public class TelaAcessoController extends BaseController {
         System.out.println("Login clicado");
 
         visao.exibeTelaCorreio();
-        visao.encerraPalco((Stage) labelError.getScene().getWindow());
+        visao.fechaTela((Stage) labelError.getScene().getWindow());
     }
 
 }
