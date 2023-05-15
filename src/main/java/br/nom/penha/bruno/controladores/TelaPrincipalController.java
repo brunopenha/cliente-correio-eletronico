@@ -1,5 +1,5 @@
 package br.nom.penha.bruno.controladores;
-import br.nom.penha.bruno.gerenciadores.CorreioManager;
+import br.nom.penha.bruno.gerenciadores.CorreioGerenciador;
 import br.nom.penha.bruno.visao.VisaoFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
@@ -21,7 +21,7 @@ public class TelaPrincipalController extends BaseController {
     @FXML
     private MenuItem adicionaConta;
 
-    public TelaPrincipalController(CorreioManager correio, VisaoFactory visao, String nomeArquivoFxml) {
+    public TelaPrincipalController(CorreioGerenciador correio, VisaoFactory visao, String nomeArquivoFxml) {
         super(correio, visao, nomeArquivoFxml);
     }
 

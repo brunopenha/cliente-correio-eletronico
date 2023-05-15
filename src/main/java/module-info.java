@@ -6,6 +6,8 @@ module cliente.correio.eletronico {
     requires javafx.fxml;
     requires javafx.graphics;
     requires javafx.web;
+    requires activation;
+    requires java.mail;
     // Se tiver o erro
     //Graphics Device initialization failed for :  es2, sw
     //Error initializing QuantumRenderer: no suitable pipeline found

@@ -1,6 +1,6 @@
 package br.nom.penha.bruno.controladores;
 
-import br.nom.penha.bruno.gerenciadores.CorreioManager;
+import br.nom.penha.bruno.gerenciadores.CorreioGerenciador;
 import br.nom.penha.bruno.visao.TamanhoFonte;
 import br.nom.penha.bruno.visao.TemaCor;
 import br.nom.penha.bruno.visao.VisaoFactory;
@@ -24,7 +24,7 @@ public class TelaOpcoesController extends BaseController implements Initializabl
     private ChoiceBox<TemaCor> selecionadorTema;
     
 
-    public TelaOpcoesController(CorreioManager correio, VisaoFactory visao, String nomeArquivoFxmlParam) {
+    public TelaOpcoesController(CorreioGerenciador correio, VisaoFactory visao, String nomeArquivoFxmlParam) {
         super(correio, visao, nomeArquivoFxmlParam);
     }
 

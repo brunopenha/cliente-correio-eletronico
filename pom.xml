@@ -12,6 +12,8 @@
     <openjfx.version>17.0.1</openjfx.version>
     <junit-jupiter-api.version>5.5.1</junit-jupiter-api.version>
     <testfx-junit5.version>4.0.16-alpha</testfx-junit5.version>
+    <javax.mail.version>1.6.2</javax.mail.version>
+    <javax.activation.version>1.1.1</javax.activation.version>
   </properties>
 
   <dependencies>
@@ -27,11 +29,6 @@
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
-      <artifactId>javafx-controls</artifactId>
-      <version>${openjfx.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.openjfx</groupId>
       <artifactId>javafx-web</artifactId>
       <version>${openjfx.version}</version>
     </dependency>
@@ -41,24 +38,34 @@
       <version>${junit-jupiter-api.version}</version>
       <scope>test</scope>
     </dependency>
-    <!--      <dependency>-->
-    <!--          <groupId>org.openjfx</groupId>-->
-    <!--          <artifactId>javafx-graphics</artifactId>-->
-    <!--          <version>${openjfx.version}</version>-->
-    <!--          <classifier>win</classifier>-->
-    <!--      </dependency>-->
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-graphics</artifactId>
       <version>${openjfx.version}</version>
       <classifier>linux</classifier>
     </dependency>
-    <!--      <dependency>-->
-    <!--          <groupId>org.openjfx</groupId>-->
-    <!--          <artifactId>javafx-graphics</artifactId>-->
-    <!--          <version>${openjfx.version}</version>-->
-    <!--          <classifier>mac</classifier>-->
-    <!--      </dependency>-->
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-graphics</artifactId>
+        <version>${openjfx.version}</version>
+        <classifier>win</classifier>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-graphics</artifactId>
+        <version>${openjfx.version}</version>
+        <classifier>mac</classifier>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>${javax.mail.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.activation</groupId>
+      <artifactId>activation</artifactId>
+      <version>${javax.activation.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.testfx</groupId>
       <artifactId>testfx-junit5</artifactId>

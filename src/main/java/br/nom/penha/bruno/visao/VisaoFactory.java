@@ -4,7 +4,7 @@ import br.nom.penha.bruno.controladores.BaseController;
 import br.nom.penha.bruno.controladores.TelaAcessoController;
 import br.nom.penha.bruno.controladores.TelaOpcoesController;
 import br.nom.penha.bruno.controladores.TelaPrincipalController;
-import br.nom.penha.bruno.gerenciadores.CorreioManager;
+import br.nom.penha.bruno.gerenciadores.CorreioGerenciador;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,14 +16,14 @@ import java.util.List;
 
 public class VisaoFactory {
 
-    private CorreioManager correio;
+    private CorreioGerenciador correio;
     private List<Stage> telasAtivas;
 
     // Opcoes de visualização
     private TemaCor cor = TemaCor.PADRAO;
     private TamanhoFonte tamanhoFonte = TamanhoFonte.MEDIO;
 
-    public VisaoFactory(CorreioManager correio) {
+    public VisaoFactory(CorreioGerenciador correio) {
         this.correio = correio;
         this.telasAtivas = new ArrayList<Stage>();
     }

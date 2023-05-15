@@ -1,6 +1,6 @@
 package br.nom.penha.bruno;
 
-import br.nom.penha.bruno.gerenciadores.CorreioManager;
+import br.nom.penha.bruno.gerenciadores.CorreioGerenciador;
 import br.nom.penha.bruno.visao.VisaoFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -21,7 +21,7 @@ public class Inicializador extends Application {
 //        stage.setScene(scn);
 //        stage.show();
 
-        VisaoFactory visaoFactory = new VisaoFactory(new CorreioManager());
+        VisaoFactory visaoFactory = new VisaoFactory(new CorreioGerenciador());
         visaoFactory.exibeTelaAcesso();
     }
 }
