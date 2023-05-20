@@ -3,6 +3,8 @@ package br.nom.penha.bruno.controladores.servicos;
 import br.nom.penha.bruno.controladores.AcessoCorreioResultado;
 import br.nom.penha.bruno.dto.ContaCorreio;
 import br.nom.penha.bruno.gerenciadores.CorreioGerenciador;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 
 import javax.mail.AuthenticationFailedException;
 import javax.mail.Authenticator;
@@ -12,7 +14,7 @@ import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Store;
 
-public class AcessoServico {
+public class AcessoServico extends Service<AcessoCorreioResultado> {
 
     ContaCorreio conta;
     CorreioGerenciador gerenciador;
@@ -23,7 +25,7 @@ public class AcessoServico {
         this.gerenciador = gerenciador;
     }
 
-    public AcessoCorreioResultado acesso(){
+    private AcessoCorreioResultado acesso(){
 
         Authenticator autenticador = new Authenticator() {
             @Override
@@ -54,5 +56,15 @@ public class AcessoServico {
 
         return AcessoCorreioResultado.SUCESSO;
 
+    }
+
+    @Override
+    protected Task createTask() {
+        return new Task() {
+            @Override
+            protected AcessoCorreioResultado call() throws Exception {
+                return acesso();
+            }
+        };
     }
 }

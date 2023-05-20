@@ -5,12 +5,12 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ContaCorreio {
-    private String endereco;
-    private String senha;
+    private final String endereco;
+    private final String senha;
     private Properties propriedades;
     private Store caixa;
 
-    public ContaCorreio(String endereco, String senha) {
+    public ContaCorreio(String endereco, String senha, boolean debug) {
         this.endereco = endereco;
         this.senha = senha;
         this.propriedades = new Properties();
@@ -21,7 +21,9 @@ public class ContaCorreio {
             throw new RuntimeException(e);
         }
 
-       //propriedades.put("mail.debug", "true");
+        if(debug){
+            propriedades.put("mail.debug", "true");
+        }
 
         propriedades.put("entrada",propriedades.getProperty("servidor"));
         propriedades.put("mail.store.protocol",propriedades.getProperty("protocolo.entrada"));

@@ -13,5 +13,6 @@
       <TextField fx:id="campoEndCorreio" layoutX="181.0" layoutY="82.0" prefHeight="25.0" prefWidth="405.0" />
       <PasswordField fx:id="campoSenha" layoutX="181.0" layoutY="143.0" prefHeight="25.0" prefWidth="405.0" />
       <Label fx:id="labelError" contentDisplay="CENTER" layoutX="35.0" layoutY="344.0" prefHeight="15.0" prefWidth="548.0" />
+      <CheckBox fx:id="debugCB" layoutX="384.0" layoutY="277.0" mnemonicParsing="false" text="Modo Depuração" />
    </children>
 </AnchorPane>
