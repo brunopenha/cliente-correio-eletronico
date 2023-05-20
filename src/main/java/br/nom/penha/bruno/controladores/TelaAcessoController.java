@@ -5,13 +5,17 @@ import br.nom.penha.bruno.dto.ContaCorreio;
 import br.nom.penha.bruno.gerenciadores.CorreioGerenciador;
 import br.nom.penha.bruno.visao.VisaoFactory;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class TelaAcessoController extends BaseController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class TelaAcessoController extends BaseController implements Initializable {
 
     @FXML
     private Label labelError;
@@ -66,5 +70,10 @@ public class TelaAcessoController extends BaseController {
         return true;
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        campoEndCorreio.setText("");
+        campoSenha.setText("");
+    }
 }
 

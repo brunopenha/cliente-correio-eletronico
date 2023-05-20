@@ -39,6 +39,7 @@ public class AcessoServico extends Service<AcessoCorreioResultado> {
             Store caixa = sessao.getStore("imaps");
             caixa.connect(conta.getPropriedades().getProperty("entrada"),conta.getEndereco(), conta.getSenha());
             conta.setCaixa(caixa);
+            gerenciador.adicionaContaCorreio(conta);
 
         } catch (NoSuchProviderException e) {
             e.printStackTrace();
