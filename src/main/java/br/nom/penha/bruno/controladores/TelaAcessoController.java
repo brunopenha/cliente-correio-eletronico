@@ -88,12 +88,12 @@ public class TelaAcessoController extends BaseController implements Initializabl
             throw new RuntimeException(e);
         }
 
-        if(null != propriedades.getProperty("usuario") && !propriedades.getProperty("servidor").trim().isEmpty()){
+        if(null != propriedades.getProperty("usuario") && !propriedades.getProperty("usuario").trim().isEmpty()){
             campoEndCorreio.setText(propriedades.getProperty("usuario"));
         }else{
             campoEndCorreio.setText("");
         }
-        if(null != propriedades.getProperty("usuario") && !propriedades.getProperty("servidor").trim().isEmpty()){
+        if(null != propriedades.getProperty("senha") && !propriedades.getProperty("senha").trim().isEmpty()){
             campoSenha.setText(propriedades.getProperty("senha"));
         }else{
             campoSenha.setText("");

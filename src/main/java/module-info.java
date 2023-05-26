@@ -15,4 +15,5 @@ module cliente.correio.eletronico {
 
     opens br.nom.penha.bruno;
     opens br.nom.penha.bruno.controladores;
+    opens br.nom.penha.bruno.dto;
 }

@@ -54,12 +54,12 @@ public class TrataPastaServico extends Service<Void> {
                 return new Task() {
                     @Override
                     protected Object call() throws Exception {
-                        if(pasta.getType() == Folder.HOLDS_FOLDERS){
+                        if(pasta.getType() != Folder.HOLDS_FOLDERS){
                             pasta.open(Folder.READ_WRITE);
                             int tamanhoPasta = pasta.getMessageCount();
                             for (int i = tamanhoPasta; i > 0; i--) {
                                 System.out.println("Assuntos obtidos: " + pasta.getMessage(i).getSubject());
-                                
+                                cartaTreeItem.adicionaCarta(pasta.getMessage(i));
                             }
                         }
                         return null;

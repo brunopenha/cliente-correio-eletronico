@@ -33,11 +33,11 @@
         <TreeView fx:id="cartasTreeView" layoutY="29.0" prefHeight="530.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="27.0" />
         <TableView fx:id="cartasTableView" layoutX="251.0" layoutY="29.0" prefHeight="264.0" prefWidth="809.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
             <columns>
-                <TableColumn fx:id="Origem" prefWidth="75.0" text="Origem" />
-                <TableColumn fx:id="Assunto" prefWidth="75.0" text="Assunto" />
-                <TableColumn fx:id="Destinario" prefWidth="153.0" text="Destinatario" />
-                <TableColumn fx:id="Tamanho" prefWidth="87.0" text="Tamanho" />
-                <TableColumn fx:id="Data" prefWidth="103.0" text="Data" />
+                <TableColumn fx:id="colunaOrigem" prefWidth="75.0" text="Origem" />
+                <TableColumn fx:id="colunaAssunto" prefWidth="337.0" text="Assunto" />
+                <TableColumn fx:id="colunaDestinario" minWidth="0.0" prefWidth="211.0" text="Destinatario" />
+                <TableColumn fx:id="colunaTamanho" prefWidth="96.0" text="Tamanho" />
+                <TableColumn fx:id="colunaData" prefWidth="89.0" text="Data" />
             </columns>
         </TableView>
         <WebView fx:id="cartasWebView" layoutX="314.0" layoutY="293.0" prefHeight="264.0" prefWidth="809.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="293.0" />
