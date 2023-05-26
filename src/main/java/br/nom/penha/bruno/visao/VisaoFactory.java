@@ -22,6 +22,7 @@ public class VisaoFactory {
     // Opcoes de visualização
     private TemaCor cor = TemaCor.PADRAO;
     private TamanhoFonte tamanhoFonte = TamanhoFonte.MEDIO;
+    private boolean telaPrincipalInicializada = false;
 
     public VisaoFactory(CorreioGerenciador correio) {
         this.correio = correio;
@@ -32,7 +33,6 @@ public class VisaoFactory {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(controlador.getNomeArquivoFxml()));
         fxmlLoader.setController(controlador);
-
 
         Parent pai;
         try {
@@ -55,7 +55,7 @@ public class VisaoFactory {
     }
 
     public void exibeTelaCorreio() {
-
+        telaPrincipalInicializada=true;
         inicializaPalco(new TelaPrincipalController(correio, this, "/telas/correio/principal.fxml"));
     }
 
@@ -66,6 +66,17 @@ public class VisaoFactory {
 
     public void exibeTelaOpcoes(){
         inicializaPalco(new TelaOpcoesController(correio, this, "/telas/opcoes/opcoes.fxml"));
+    }
+
+    public void atualizaEstilos() {
+
+        for (Stage tela : telasAtivas) {
+            Scene cena = tela.getScene();
+            // Vamos brincar com o css
+            cena.getStylesheets().clear();
+            cena.getStylesheets().add(getClass().getResource(TemaCor.caminhoCss(cor)).toExternalForm());
+            cena.getStylesheets().add(getClass().getResource(TamanhoFonte.caminhoCss(tamanhoFonte)).toExternalForm());
+        }
     }
 
     public TemaCor getCor() {
@@ -84,14 +95,7 @@ public class VisaoFactory {
         this.tamanhoFonte = tamanhoFonte;
     }
 
-    public void atualizaEstilos() {
-
-        for (Stage tela : telasAtivas) {
-            Scene cena = tela.getScene();
-            // Vamos brincar com o css
-            cena.getStylesheets().clear();
-            cena.getStylesheets().add(getClass().getResource(TemaCor.caminhoCss(cor)).toExternalForm());
-            cena.getStylesheets().add(getClass().getResource(TamanhoFonte.caminhoCss(tamanhoFonte)).toExternalForm());
-        }
+    public boolean isTelaPrincipalInicializada(){
+        return telaPrincipalInicializada;
     }
 }

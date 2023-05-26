@@ -12,7 +12,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class TelaAcessoController extends BaseController implements Initializable {
@@ -48,9 +50,14 @@ public class TelaAcessoController extends BaseController implements Initializabl
                 switch (resultado){
                     case SUCESSO -> {
                         System.out.println("Acesso com sucesso " + conta);
-                        visao.exibeTelaCorreio();
+                        if(!visao.isTelaPrincipalInicializada()){
+                            visao.exibeTelaCorreio();
+                        }
                         visao.fechaTela((Stage) labelError.getScene().getWindow());
                     }
+                    case FALHOU_POR_AUTENTICACAO -> labelError.setText("Credenciais inválidas!");
+                    case FALHOU_POR_ERRO_REDE -> labelError.setText("Problema na rede!");
+                    default -> labelError.setText("Erro inesperado!");
                 }
 
             });
@@ -72,8 +79,25 @@ public class TelaAcessoController extends BaseController implements Initializabl
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        campoEndCorreio.setText("");
-        campoSenha.setText("");
+
+        Properties propriedades = new Properties();
+
+        try {
+            propriedades.load(getClass().getResourceAsStream("/configuracoes.properties"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        if(null != propriedades.getProperty("usuario") && !propriedades.getProperty("servidor").trim().isEmpty()){
+            campoEndCorreio.setText(propriedades.getProperty("usuario"));
+        }else{
+            campoEndCorreio.setText("");
+        }
+        if(null != propriedades.getProperty("usuario") && !propriedades.getProperty("servidor").trim().isEmpty()){
+            campoSenha.setText(propriedades.getProperty("senha"));
+        }else{
+            campoSenha.setText("");
+        }
     }
 }
 

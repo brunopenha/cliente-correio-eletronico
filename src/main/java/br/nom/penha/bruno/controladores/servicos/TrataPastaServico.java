@@ -8,7 +8,7 @@ import javax.mail.Folder;
 import javax.mail.MessagingException;
 import javax.mail.Store;
 
-public class TrataPastaServico extends Service {
+public class TrataPastaServico extends Service<Void> {
 
     private Store caixa;
     private CartaTreeItem<String> pastaRaiz;
