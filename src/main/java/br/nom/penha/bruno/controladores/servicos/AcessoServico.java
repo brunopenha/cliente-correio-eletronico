@@ -3,6 +3,7 @@ package br.nom.penha.bruno.controladores.servicos;
 import br.nom.penha.bruno.controladores.AcessoCorreioResultado;
 import br.nom.penha.bruno.dto.ContaCorreio;
 import br.nom.penha.bruno.gerenciadores.CorreioGerenciador;
+import com.sun.mail.util.MailConnectException;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 
@@ -41,7 +42,7 @@ public class AcessoServico extends Service<AcessoCorreioResultado> {
             conta.setCaixa(caixa);
             gerenciador.adicionaContaCorreio(conta);
 
-        } catch (NoSuchProviderException e) {
+        } catch (NoSuchProviderException | MailConnectException e) {
             e.printStackTrace();
             return AcessoCorreioResultado.FALHOU_POR_ERRO_REDE;
         } catch (AuthenticationFailedException e){
@@ -63,7 +64,7 @@ public class AcessoServico extends Service<AcessoCorreioResultado> {
     protected Task createTask() {
         return new Task() {
             @Override
-            protected AcessoCorreioResultado call() throws Exception {
+            protected AcessoCorreioResultado call() {
                 return acesso();
             }
         };

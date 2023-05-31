@@ -5,12 +5,10 @@ import br.nom.penha.bruno.gerenciadores.CorreioGerenciador;
 import br.nom.penha.bruno.visao.VisaoFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.web.WebView;
+import javafx.util.Callback;
 
 import java.net.URL;
 import java.util.Date;
@@ -67,6 +65,28 @@ public class TelaPrincipalController extends BaseController implements Initializ
         ajustaCartasVisaoArvore();
         ajustaVisualizacaoListaMensagens();
         ajustaPastaSelecionada();
+        ajustaLinhasEmNegrito();
+    }
+
+    private void ajustaLinhasEmNegrito() {
+        cartasTableView.setRowFactory(new Callback<TableView<Mensagem>, TableRow<Mensagem>>() {
+            @Override
+            public TableRow<Mensagem> call(TableView<Mensagem> mensagemTableView) {
+                return new TableRow<Mensagem>(){
+                    @Override
+                    protected void updateItem(Mensagem mensagem, boolean b) {
+                        super.updateItem(mensagem, b);
+                        if(null != mensagem){
+                            if(getItem().isFoiLido()){
+                                setStyle("");
+                            }else{
+                                setStyle("-fx-font-weight: bold");
+                            }
+                        }
+                    }
+                };
+            }
+        });
     }
 
     private void ajustaPastaSelecionada() {
