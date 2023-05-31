@@ -1,6 +1,7 @@
 package br.nom.penha.bruno.controladores;
 import br.nom.penha.bruno.dto.CartaTreeItem;
 import br.nom.penha.bruno.dto.Mensagem;
+import br.nom.penha.bruno.dto.TamanhoInteiro;
 import br.nom.penha.bruno.gerenciadores.CorreioGerenciador;
 import br.nom.penha.bruno.visao.VisaoFactory;
 import javafx.fxml.FXML;
@@ -39,7 +40,7 @@ public class TelaPrincipalController extends BaseController implements Initializ
     private TableColumn<Mensagem, String> colunaAssunto;
 
     @FXML
-    private TableColumn<Mensagem, Integer> colunaTamanho;
+    private TableColumn<Mensagem, TamanhoInteiro> colunaTamanho;
 
     @FXML
     private TableColumn<Mensagem, Date> colunaData;
@@ -102,7 +103,7 @@ public class TelaPrincipalController extends BaseController implements Initializ
         colunaOrigem.setCellValueFactory(new PropertyValueFactory<Mensagem,String>("autor"));
         colunaAssunto.setCellValueFactory(new PropertyValueFactory<Mensagem,String>("assunto"));
         colunaDestinario.setCellValueFactory(new PropertyValueFactory<Mensagem,String>("destinatario"));
-        colunaTamanho.setCellValueFactory(new PropertyValueFactory<Mensagem,Integer>("tamanho"));
+        colunaTamanho.setCellValueFactory(new PropertyValueFactory<Mensagem,TamanhoInteiro>("tamanho"));
         colunaData.setCellValueFactory(new PropertyValueFactory<Mensagem,Date>("data"));
     }
 

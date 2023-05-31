@@ -1,6 +1,5 @@
 package br.nom.penha.bruno.dto;
 
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -12,7 +11,7 @@ public class Mensagem {
     private SimpleStringProperty assunto;
     private SimpleStringProperty autor;
     private SimpleStringProperty destinatario;
-    private SimpleIntegerProperty tamanho;
+    private SimpleObjectProperty<TamanhoInteiro> tamanho;
     private SimpleObjectProperty<Date> data;
     private boolean foiLido;
     private Message mensagem;
@@ -22,7 +21,7 @@ public class Mensagem {
         this.assunto = new SimpleStringProperty(assunto);
         this.autor = new SimpleStringProperty(autor);
         this.destinatario = new SimpleStringProperty(destinatario);
-        this.tamanho = new SimpleIntegerProperty(tamanho);
+        this.tamanho = new SimpleObjectProperty<TamanhoInteiro>(new TamanhoInteiro(tamanho));
         this.data = new SimpleObjectProperty<Date>(data);
         this.foiLido = foiLido;
         this.mensagem = mensagem;
@@ -52,11 +51,11 @@ public class Mensagem {
         return destinatario;
     }
 
-    public int getTamanho() {
+    public TamanhoInteiro getTamanho() {
         return tamanho.get();
     }
 
-    public SimpleIntegerProperty tamanhoProperty() {
+    public SimpleObjectProperty<TamanhoInteiro> tamanhoProperty() {
         return tamanho;
     }
 
@@ -89,7 +88,7 @@ public class Mensagem {
     }
 
     public void setTamanho(int tamanho) {
-        this.tamanho.set(tamanho);
+        this.tamanho.set(new TamanhoInteiro(tamanho));
     }
 
     public void setData(Date data) {
