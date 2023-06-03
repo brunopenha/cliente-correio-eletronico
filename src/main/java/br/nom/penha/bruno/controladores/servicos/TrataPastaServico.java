@@ -58,7 +58,7 @@ public class TrataPastaServico extends Service<Void> {
                             pasta.open(Folder.READ_WRITE);
                             int tamanhoPasta = pasta.getMessageCount();
                             for (int i = tamanhoPasta; i > 0; i--) {
-                                System.out.println("Assuntos obtidos: " + pasta.getMessage(i).getSubject());
+//                                System.out.println("Assuntos obtidos: " + pasta.getMessage(i).getSubject());
                                 cartaTreeItem.adicionaCarta(pasta.getMessage(i));
                             }
                         }

@@ -1,4 +1,5 @@
 package br.nom.penha.bruno.controladores;
+import br.nom.penha.bruno.controladores.servicos.ExibidorMensagemServico;
 import br.nom.penha.bruno.dto.CartaTreeItem;
 import br.nom.penha.bruno.dto.Mensagem;
 import br.nom.penha.bruno.dto.TamanhoInteiro;
@@ -45,10 +46,11 @@ public class TelaPrincipalController extends BaseController implements Initializ
     @FXML
     private TableColumn<Mensagem, Date> colunaData;
 
+    private ExibidorMensagemServico exibeMensagem;
+
     public TelaPrincipalController(CorreioGerenciador correio, VisaoFactory visao, String nomeArquivoFxml) {
         super(correio, visao, nomeArquivoFxml);
     }
-
 
     @FXML
     void acaoOpcoes() {
@@ -67,6 +69,23 @@ public class TelaPrincipalController extends BaseController implements Initializ
         ajustaVisualizacaoListaMensagens();
         ajustaPastaSelecionada();
         ajustaLinhasEmNegrito();
+        ajustaServiceExibicaoMensagem();
+        ajustaMensagemSelecionada();
+    }
+
+    private void ajustaMensagemSelecionada() {
+        cartasTableView.setOnMouseClicked(evento -> {
+            Mensagem mensagem = cartasTableView.getSelectionModel().getSelectedItem();
+            if(null != mensagem){
+                exibeMensagem.setMensagem(mensagem);
+                exibeMensagem.restart();
+            }
+        });
+
+    }
+
+    private void ajustaServiceExibicaoMensagem() {
+        exibeMensagem = new ExibidorMensagemServico(cartasWebView.getEngine());
     }
 
     private void ajustaLinhasEmNegrito() {
