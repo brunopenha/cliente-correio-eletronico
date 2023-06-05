@@ -77,6 +77,10 @@ public class TelaPrincipalController extends BaseController implements Initializ
         cartasTableView.setOnMouseClicked(evento -> {
             Mensagem mensagem = cartasTableView.getSelectionModel().getSelectedItem();
             if(null != mensagem){
+                correio.setMensagemSelecionada(mensagem);
+                if(!mensagem.isFoiLido()){
+                    correio.setFoiLido();
+                }
                 exibeMensagem.setMensagem(mensagem);
                 exibeMensagem.restart();
             }
@@ -113,6 +117,7 @@ public class TelaPrincipalController extends BaseController implements Initializ
         cartasTreeView.setOnMouseClicked(e -> {
             CartaTreeItem<String> item = (CartaTreeItem<String>) cartasTreeView.getSelectionModel().getSelectedItem();
             if(null != item){
+                correio.setPastaSelecionada(item);
                 cartasTableView.setItems(item.getMensagens());
             }
         });

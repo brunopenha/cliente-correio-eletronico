@@ -4,14 +4,20 @@ import br.nom.penha.bruno.controladores.servicos.AtualizadorPastaService;
 import br.nom.penha.bruno.controladores.servicos.TrataPastaServico;
 import br.nom.penha.bruno.dto.CartaTreeItem;
 import br.nom.penha.bruno.dto.ContaCorreio;
+import br.nom.penha.bruno.dto.Mensagem;
 
+import javax.mail.Flags;
 import javax.mail.Folder;
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 public class CorreioGerenciador {
+
+    private Mensagem mensagemSelecionada;
+    private CartaTreeItem pastaSelecionada;
 
     private AtualizadorPastaService aps;
     //Tratar pasta
@@ -49,5 +55,32 @@ public class CorreioGerenciador {
 
     public CartaTreeItem<String> getPastaRaiz() {
         return pastaRaiz;
+    }
+
+    public Mensagem getMensagemSelecionada() {
+        return mensagemSelecionada;
+    }
+
+    public void setMensagemSelecionada(Mensagem mensagemSelecionada) {
+        this.mensagemSelecionada = mensagemSelecionada;
+    }
+
+    public CartaTreeItem getPastaSelecionada() {
+        return pastaSelecionada;
+    }
+
+    public void setPastaSelecionada(CartaTreeItem pastaSelecionada) {
+        this.pastaSelecionada = pastaSelecionada;
+    }
+
+    public void setFoiLido() {
+        //Aqui ja sabemos qual mensagem foi selecionada
+        try {
+            mensagemSelecionada.setFoiLido(true);
+            mensagemSelecionada.getMensagem().setFlag(Flags.Flag.SEEN, true);
+            pastaSelecionada.diminiuQtdMensagensNaoLidas();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
     }
 }

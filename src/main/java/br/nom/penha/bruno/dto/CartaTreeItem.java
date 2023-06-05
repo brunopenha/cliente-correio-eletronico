@@ -37,6 +37,11 @@ public class CartaTreeItem<String> extends TreeItem<String> {
         atualizaNome();
     }
 
+    public void diminiuQtdMensagensNaoLidas(){
+        qtdMensagensNaoLidas--;
+        atualizaNome();
+    }
+
     public void adicionaCarta(Message mensagemOriginal) throws MessagingException {
         mensagens.add(obtemMensagem(mensagemOriginal));
     }
