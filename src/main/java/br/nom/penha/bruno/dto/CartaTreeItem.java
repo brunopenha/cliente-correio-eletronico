@@ -38,6 +38,13 @@ public class CartaTreeItem<String> extends TreeItem<String> {
     }
 
     public void adicionaCarta(Message mensagemOriginal) throws MessagingException {
+        mensagens.add(obtemMensagem(mensagemOriginal));
+    }
+
+    public void adicionaCartaNoInicio(Message mensagemOriginal) throws MessagingException {
+        mensagens.add(0,obtemMensagem(mensagemOriginal));
+    }
+    private Mensagem obtemMensagem(Message mensagemOriginal) throws MessagingException {
         boolean mensagemLida = mensagemOriginal.getFlags().contains(Flags.Flag.SEEN);
         Mensagem mensagem = new Mensagem(
                 mensagemOriginal.getSubject(),
@@ -48,10 +55,10 @@ public class CartaTreeItem<String> extends TreeItem<String> {
                 mensagemLida,
                 mensagemOriginal
         );
-        mensagens.add(mensagem);
         if(!mensagemLida){
             incrementaQtdMensagensNaoLidas();
         }
+        return mensagem;
     }
 
 
