@@ -47,6 +47,9 @@ public class TelaPrincipalController extends BaseController implements Initializ
     private TableColumn<Mensagem, Date> colunaData;
 
     private ExibidorMensagemServico exibeMensagem;
+    private MenuItem deixaNaoLidoMI = new MenuItem("Marca como não lido");
+    private MenuItem apagaMensagemMI = new MenuItem("Apaga a mensagem");
+
 
     public TelaPrincipalController(CorreioGerenciador correio, VisaoFactory visao, String nomeArquivoFxml) {
         super(correio, visao, nomeArquivoFxml);
@@ -71,6 +74,17 @@ public class TelaPrincipalController extends BaseController implements Initializ
         ajustaLinhasEmNegrito();
         ajustaServiceExibicaoMensagem();
         ajustaMensagemSelecionada();
+        ajustaMenusContexto();
+    }
+
+    private void ajustaMenusContexto() {
+        deixaNaoLidoMI.setOnAction(evento-> {
+            correio.setNaoFoiLido();
+        });
+        apagaMensagemMI.setOnAction(evento -> {
+            correio.apagaMensagemSelecionada();
+            cartasWebView.getEngine().loadContent(""); // Força uma limpeza na mensage que foi apagada
+        });
     }
 
     private void ajustaMensagemSelecionada() {
@@ -129,6 +143,7 @@ public class TelaPrincipalController extends BaseController implements Initializ
         colunaDestinario.setCellValueFactory(new PropertyValueFactory<Mensagem,String>("destinatario"));
         colunaTamanho.setCellValueFactory(new PropertyValueFactory<Mensagem,TamanhoInteiro>("tamanho"));
         colunaData.setCellValueFactory(new PropertyValueFactory<Mensagem,Date>("data"));
+        cartasTableView.setContextMenu(new ContextMenu(deixaNaoLidoMI,apagaMensagemMI));
     }
 
     private void ajustaCartasVisaoArvore() {

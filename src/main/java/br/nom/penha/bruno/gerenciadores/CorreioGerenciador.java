@@ -83,4 +83,24 @@ public class CorreioGerenciador {
             e.printStackTrace();
         }
     }
+
+    public void setNaoFoiLido() {
+        //Aqui ja sabemos qual mensagem foi selecionada
+        try {
+            mensagemSelecionada.setFoiLido(false);
+            mensagemSelecionada.getMensagem().setFlag(Flags.Flag.SEEN, false);
+            pastaSelecionada.incrementaQtdMensagensNaoLidas();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void apagaMensagemSelecionada() {
+        try {
+            mensagemSelecionada.getMensagem().setFlag(Flags.Flag.DELETED, true);
+            pastaSelecionada.getMensagens().remove(mensagemSelecionada);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
 }
