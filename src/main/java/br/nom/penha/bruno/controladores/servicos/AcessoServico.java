@@ -37,6 +37,7 @@ public class AcessoServico extends Service<AcessoCorreioResultado> {
 
         try {
             Session sessao = Session.getInstance(conta.getPropriedades(),autenticador);
+            conta.setSessao(sessao);
             Store caixa = sessao.getStore("imaps");
             caixa.connect(conta.getPropriedades().getProperty("entrada"),conta.getEndereco(), conta.getSenha());
             conta.setCaixa(caixa);

@@ -1,6 +1,7 @@
 package br.nom.penha.bruno.visao;
 
 import br.nom.penha.bruno.controladores.BaseController;
+import br.nom.penha.bruno.controladores.CriaCartaController;
 import br.nom.penha.bruno.controladores.TelaAcessoController;
 import br.nom.penha.bruno.controladores.TelaOpcoesController;
 import br.nom.penha.bruno.controladores.TelaPrincipalController;
@@ -66,6 +67,10 @@ public class VisaoFactory {
 
     public void exibeTelaOpcoes(){
         inicializaPalco(new TelaOpcoesController(correio, this, "/telas/opcoes/opcoes.fxml"));
+    }
+
+    public void exibeTelaCriaMensagem(){
+        inicializaPalco(new CriaCartaController(correio, this, "/telas/correio/cria_carta.fxml"));
     }
 
     public void atualizaEstilos() {

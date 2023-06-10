@@ -18,7 +18,7 @@ public class TrataPastaServico extends Service<Void> {
     private CartaTreeItem<String> pastaRaiz;
     private List<Folder> listaPastas;
 
-    public TrataPastaServico(Store caixa, CartaTreeItem<String> pastaRaiz, List<Folder> listaPastasParam) {
+    public  TrataPastaServico(Store caixa, CartaTreeItem<String> pastaRaiz, List<Folder> listaPastasParam) {
         this.caixa = caixa;
         this.pastaRaiz = pastaRaiz;
         this.listaPastas = listaPastasParam;

@@ -1,5 +1,6 @@
 package br.nom.penha.bruno.dto;
 
+import javax.mail.Session;
 import javax.mail.Store;
 import java.io.IOException;
 import java.util.Properties;
@@ -9,6 +10,7 @@ public class ContaCorreio {
     private final String senha;
     private Properties propriedades;
     private Store caixa;
+    private Session sessao;
 
     public ContaCorreio(String endereco, String senha, boolean debug) {
         this.endereco = endereco;
@@ -59,5 +61,18 @@ public class ContaCorreio {
 
     public void setCaixa(Store caixa) {
         this.caixa = caixa;
+    }
+
+    public Session getSessao() {
+        return sessao;
+    }
+
+    public void setSessao(Session sessao) {
+        this.sessao = sessao;
+    }
+
+    @Override
+    public String toString() {
+        return endereco;
     }
 }

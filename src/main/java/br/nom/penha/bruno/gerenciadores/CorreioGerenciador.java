@@ -5,6 +5,8 @@ import br.nom.penha.bruno.controladores.servicos.TrataPastaServico;
 import br.nom.penha.bruno.dto.CartaTreeItem;
 import br.nom.penha.bruno.dto.ContaCorreio;
 import br.nom.penha.bruno.dto.Mensagem;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import javax.mail.Flags;
 import javax.mail.Folder;
@@ -24,6 +26,7 @@ public class CorreioGerenciador {
     private CartaTreeItem<String> pastaRaiz = new CartaTreeItem<String>("");
     private List<Folder> listaPastas = new ArrayList<Folder>();
     private final Properties propriedadesCorreio;
+    private ObservableList<ContaCorreio> contas = FXCollections.observableArrayList();
 
     public CorreioGerenciador(){
         propriedadesCorreio = new Properties();
@@ -47,6 +50,7 @@ public class CorreioGerenciador {
         TrataPastaServico trataPastaServico = new TrataPastaServico(contaAserAdicionado.getCaixa(), item,listaPastas);
         trataPastaServico.start();
         pastaRaiz.getChildren().add(item);
+        contas.add(contaAserAdicionado);
     }
 
     public List<Folder> getListaPastas() {
@@ -93,6 +97,10 @@ public class CorreioGerenciador {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+    }
+
+    public ObservableList<ContaCorreio> getContas() {
+        return contas;
     }
 
     public void apagaMensagemSelecionada() {

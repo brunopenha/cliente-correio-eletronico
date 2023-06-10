@@ -66,6 +66,11 @@ public class TelaPrincipalController extends BaseController implements Initializ
         visao.exibeTelaAcesso();
     }
 
+    @FXML
+    void acaoCriaMensagem() {
+        visao.exibeTelaCriaMensagem();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ajustaCartasVisaoArvore();

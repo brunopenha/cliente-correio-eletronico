@@ -77,6 +77,7 @@ public class ExibidorMensagemServico extends Service {
                 carregaMultipart(multipart,sb);
             } else if (ehTipoTextoPlano(corpo.getContentType().toLowerCase())) {
                 MimeBodyPart mimeBodyPart = (MimeBodyPart) corpo;
+                // adicione mimeBodyPart como anexo da mensagem
 
             }
         }
@@ -92,7 +93,7 @@ public class ExibidorMensagemServico extends Service {
 
     private boolean ehMensagemSimples(String tipoConteudo) {
         return tipoConteudo.contains("text/html")
-                || tipoConteudo.contains("mixed");
+                || (tipoConteudo.contains("mixed") && !tipoConteudo.contains("multipart"));
 //                || tipoConteudo.contains("text");
     }
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="553.0" prefWidth="662.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="14.0" layoutY="73.0" text="Destinatário:" />
+      <Label layoutX="14.0" layoutY="109.0" prefHeight="15.0" prefWidth="85.0" text="Assunto:" />
+      <TextField fx:id="campoDestinatario" layoutX="104.0" layoutY="68.0" prefHeight="25.0" prefWidth="545.0" />
+      <TextField fx:id="campoAssunto" layoutX="104.0" layoutY="104.0" prefHeight="25.0" prefWidth="545.0" />
+      <HTMLEditor fx:id="editorHTML" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="14.0" layoutY="137.0" prefHeight="366.0" prefWidth="639.0" />
+      <Button fx:id="botaoEnviar" layoutX="565.0" layoutY="514.0" mnemonicParsing="false" onAction="#acaoBotaoEnviar" text="Enviar" />
+      <Label fx:id="erroLabel" layoutX="14.0" layoutY="519.0" prefHeight="15.0" prefWidth="333.0" />
+      <Label layoutX="14.0" layoutY="32.0" text="Conta:" />
+      <ChoiceBox fx:id="opcaoConta" layoutX="106.0" layoutY="27.0" prefHeight="25.0" prefWidth="545.0" />
+   </children>
+</AnchorPane>
