@@ -14,6 +14,7 @@
     <testfx-junit5.version>4.0.16-alpha</testfx-junit5.version>
     <javax.mail.version>1.6.2</javax.mail.version>
     <javax.activation.version>1.1.1</javax.activation.version>
+    <mockito-all.version>1.10.19</mockito-all.version>
   </properties>
 
   <dependencies>
@@ -33,28 +34,22 @@
       <version>${openjfx.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>${junit-jupiter-api.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-graphics</artifactId>
       <version>${openjfx.version}</version>
       <classifier>linux</classifier>
     </dependency>
     <dependency>
-        <groupId>org.openjfx</groupId>
-        <artifactId>javafx-graphics</artifactId>
-        <version>${openjfx.version}</version>
-        <classifier>win</classifier>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>${openjfx.version}</version>
+      <classifier>win</classifier>
     </dependency>
     <dependency>
-        <groupId>org.openjfx</groupId>
-        <artifactId>javafx-graphics</artifactId>
-        <version>${openjfx.version}</version>
-        <classifier>mac</classifier>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>${openjfx.version}</version>
+      <classifier>mac</classifier>
     </dependency>
     <dependency>
       <groupId>com.sun.mail</groupId>
@@ -67,9 +62,21 @@
       <version>${javax.activation.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit-jupiter-api.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.testfx</groupId>
       <artifactId>testfx-junit5</artifactId>
       <version>${testfx-junit5.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <version>${mockito-all.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
