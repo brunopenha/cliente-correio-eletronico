@@ -1,5 +1,7 @@
 package br.nom.penha.bruno.dto;
 
+import java.util.Objects;
+
 public class TamanhoInteiro implements Comparable<TamanhoInteiro>{
 
     private int tamanho;
@@ -31,5 +33,17 @@ public class TamanhoInteiro implements Comparable<TamanhoInteiro>{
             return -1;
         }
         return 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TamanhoInteiro that)) return false;
+        return tamanho == that.tamanho;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tamanho);
     }
 }

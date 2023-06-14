@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 import javax.mail.Message;
 import java.util.Date;
+import java.util.Objects;
 
 public class Mensagem {
 
@@ -101,5 +102,23 @@ public class Mensagem {
 
     public void setMensagem(Message mensagem) {
         this.mensagem = mensagem;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Mensagem mensagem1)) return false;
+        return isFoiLido() == mensagem1.isFoiLido() &&
+                Objects.equals(getAssunto(), mensagem1.getAssunto()) &&
+                Objects.equals(getAutor(), mensagem1.getAutor()) &&
+                Objects.equals(getDestinatario(), mensagem1.getDestinatario()) &&
+                Objects.equals(getTamanho(), mensagem1.getTamanho()) &&
+                Objects.equals(getData(), mensagem1.getData()) &&
+                Objects.equals(getMensagem(), mensagem1.getMensagem());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getAssunto(), getAutor(), getDestinatario(), getTamanho(), getData(), isFoiLido(), getMensagem());
     }
 }

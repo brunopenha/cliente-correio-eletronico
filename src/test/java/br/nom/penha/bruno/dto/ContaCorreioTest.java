@@ -18,9 +18,9 @@ class ContaCorreioTest {
     private Properties propriedades;
 
     /**
-     * add this to VM Options
+     * inclua essa instrução nas Opções da VM
      * --add-opens java.base/java.lang=ALL-UNNAMED
-     * To avoid
+     * Para Evitar
      * Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module
      */
     @Mock
@@ -35,8 +35,8 @@ class ContaCorreioTest {
 
     @Test
     public void validaCampos(){
-        assertEquals(conta.getEndereco(), enderecoQualquer);
-        assertEquals(conta.getSenha(), senhaQualquer);
+        assertEquals(enderecoQualquer, conta.getEndereco());
+        assertEquals(senhaQualquer, conta.getSenha());
     }
 
     @Test
@@ -44,6 +44,6 @@ class ContaCorreioTest {
         conta.setPropriedades(propriedades);
         assertEquals(conta.getPropriedades(),propriedades);
         conta.setCaixa(caixaMock);
-        assertEquals(conta.getCaixa(),caixaMock);
+        assertEquals(caixaMock,conta.getCaixa());
     }
 }
