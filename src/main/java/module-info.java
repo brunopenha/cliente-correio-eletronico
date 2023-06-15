@@ -16,4 +16,8 @@ module cliente.correio.eletronico {
     opens br.nom.penha.bruno;
     opens br.nom.penha.bruno.controladores;
     opens br.nom.penha.bruno.dto;
+    exports br.nom.penha.bruno.gerenciadores;
+    exports br.nom.penha.bruno.visao;
+    exports br.nom.penha.bruno.controladores.servicos;
+    exports br.nom.penha.bruno.dto;
 }

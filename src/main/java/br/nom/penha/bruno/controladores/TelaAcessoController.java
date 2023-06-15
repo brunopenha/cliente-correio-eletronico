@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 
 public class TelaAcessoController extends BaseController implements Initializable {
 
+    AcessoServico acessoServico;
     @FXML
     private Label labelError;
 
@@ -33,6 +34,17 @@ public class TelaAcessoController extends BaseController implements Initializabl
 
     public TelaAcessoController(CorreioGerenciador correio, VisaoFactory visao, String nomeArquivoFxml) {
         super(correio, visao, nomeArquivoFxml);
+            acessoServico = new AcessoServico(correio);
+
+    }
+
+    public TelaAcessoController(CorreioGerenciador correio, VisaoFactory visao, TextField campoUsuario, PasswordField campoSenha, Label erroLabel,CheckBox opcaoDebug,AcessoServico servico, String paginaAcesso) {
+        super(correio, visao, paginaAcesso);
+        this.campoEndCorreio = campoUsuario;
+        this.campoSenha = campoSenha;
+        this.labelError = erroLabel;
+        this.debugCB = opcaoDebug;
+        this.acessoServico = servico;
     }
 
     @FXML
@@ -41,8 +53,7 @@ public class TelaAcessoController extends BaseController implements Initializabl
         System.out.println("Login clicado");
         if(camposSaoValidos()){
             ContaCorreio conta = new ContaCorreio(campoEndCorreio.getText(),campoSenha.getText(),debugCB.isSelected());
-            AcessoServico acessoServico = new AcessoServico(conta,correio);
-
+            acessoServico.setConta(conta);
             acessoServico.start();
             acessoServico.setOnSucceeded(evento -> {
 

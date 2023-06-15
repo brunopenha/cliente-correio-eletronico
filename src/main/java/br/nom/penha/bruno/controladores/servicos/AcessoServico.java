@@ -9,7 +9,6 @@ import javafx.concurrent.Task;
 
 import javax.mail.AuthenticationFailedException;
 import javax.mail.Authenticator;
-import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
@@ -20,9 +19,8 @@ public class AcessoServico extends Service<AcessoCorreioResultado> {
     ContaCorreio conta;
     CorreioGerenciador gerenciador;
 
-    public AcessoServico(ContaCorreio conta, CorreioGerenciador gerenciador) {
+    public AcessoServico(CorreioGerenciador gerenciador) {
 
-        this.conta = conta;
         this.gerenciador = gerenciador;
     }
 
@@ -49,9 +47,6 @@ public class AcessoServico extends Service<AcessoCorreioResultado> {
         } catch (AuthenticationFailedException e){
             e.printStackTrace();
             return AcessoCorreioResultado.FALHOU_POR_AUTENTICACAO;
-        } catch (MessagingException e) {
-            e.printStackTrace();
-            return AcessoCorreioResultado.FALHOU_POR_ERRO_INESPERADO;
         } catch (Exception e ){
             e.printStackTrace();
             return AcessoCorreioResultado.FALHOU_POR_ERRO_INESPERADO;
@@ -61,6 +56,7 @@ public class AcessoServico extends Service<AcessoCorreioResultado> {
 
     }
 
+    @SuppressWarnings({"unchecked", "rawtypes"})
     @Override
     protected Task createTask() {
         return new Task() {
@@ -69,5 +65,9 @@ public class AcessoServico extends Service<AcessoCorreioResultado> {
                 return acesso();
             }
         };
+    }
+
+    public void setConta(ContaCorreio conta) {
+        this.conta = conta;
     }
 }
