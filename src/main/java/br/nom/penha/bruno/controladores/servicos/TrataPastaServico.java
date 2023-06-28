@@ -1,6 +1,7 @@
 package br.nom.penha.bruno.controladores.servicos;
 
 import br.nom.penha.bruno.dto.CartaTreeItem;
+import br.nom.penha.bruno.visao.TrataIcones;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 
@@ -17,6 +18,7 @@ public class TrataPastaServico extends Service<Void> {
     private Store caixa;
     private CartaTreeItem<String> pastaRaiz;
     private List<Folder> listaPastas;
+    private TrataIcones icones = new TrataIcones();
 
     public  TrataPastaServico(Store caixa, CartaTreeItem<String> pastaRaiz, List<Folder> listaPastasParam) {
         this.caixa = caixa;
@@ -44,6 +46,7 @@ public class TrataPastaServico extends Service<Void> {
         for (Folder pasta : pastas) {
             listaPastas.add(pasta);
             CartaTreeItem<String> cartaTreeItem = new CartaTreeItem<String>(pasta.getName());
+            cartaTreeItem.setGraphic(icones.getIconeParaPasta(pasta.getName()));
             pastaRaiz.getChildren().add(cartaTreeItem);
             pastaRaiz.setExpanded(true);
             //Aqui acessamos a pasta e o item da carta

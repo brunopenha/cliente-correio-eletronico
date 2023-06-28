@@ -5,6 +5,7 @@ import br.nom.penha.bruno.controladores.servicos.TrataPastaServico;
 import br.nom.penha.bruno.dto.CartaTreeItem;
 import br.nom.penha.bruno.dto.ContaCorreio;
 import br.nom.penha.bruno.dto.Mensagem;
+import br.nom.penha.bruno.visao.TrataIcones;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -27,6 +28,7 @@ public class CorreioGerenciador {
     private List<Folder> listaPastas = new ArrayList<Folder>();
     private final Properties propriedadesCorreio;
     private ObservableList<ContaCorreio> contas = FXCollections.observableArrayList();
+    private TrataIcones icones = new TrataIcones();
 
     public CorreioGerenciador(){
         propriedadesCorreio = new Properties();
@@ -47,6 +49,7 @@ public class CorreioGerenciador {
 
     public void adicionaContaCorreio(ContaCorreio contaAserAdicionado){
         CartaTreeItem<String> item = new CartaTreeItem<>(contaAserAdicionado.getEndereco());
+        item.setGraphic(icones.getIconeParaUsuario());
         TrataPastaServico trataPastaServico = new TrataPastaServico(contaAserAdicionado.getCaixa(), item,listaPastas);
         trataPastaServico.start();
         pastaRaiz.getChildren().add(item);
